@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="fc4L4M3vn_8G0zDKkzgYmIBKglt6KCbV1TjF_JCxNbg">
+  <meta name="msvalidate.01" content="fc4L4M3vn_8G0zDKkzgYmIBKglt6KCbV1TjF_JCxNbg">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ljy18.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"ture","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="前言 LaTeX是一套非常优秀的排版系统， 通过它排版的图书和论文会变得非常漂亮和易读。 而LaTeX在编写数学公式的易用性和通用性，使我对它产生了浓厚的兴趣。 这篇文章主要介绍了LaTeX公式编辑在MarkDown下的使用语法和方法。 以下的例子是在Sublime Text3上编写， 并测试的结果， 当然你也可以在任何引入MathJax的MarkDown编辑器上测试。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX数学公式大全">
+<meta property="og:url" content="http://ljy18.github.io/post/LaTeX%20Mathematical%20formula/index.html">
+<meta property="og:site_name" content="MyBlog">
+<meta property="og:description" content="前言 LaTeX是一套非常优秀的排版系统， 通过它排版的图书和论文会变得非常漂亮和易读。 而LaTeX在编写数学公式的易用性和通用性，使我对它产生了浓厚的兴趣。 这篇文章主要介绍了LaTeX公式编辑在MarkDown下的使用语法和方法。 以下的例子是在Sublime Text3上编写， 并测试的结果， 当然你也可以在任何引入MathJax的MarkDown编辑器上测试。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-22T13:29:24.000Z">
+<meta property="article:modified_time" content="2023-01-07T15:54:16.058Z">
+<meta property="article:author" content="ljunya">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="Formula">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://ljy18.github.io/post/LaTeX%20Mathematical%20formula/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>LaTeX数学公式大全 | MyBlog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">MyBlog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Code changes the world</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://ljy18.github.io/post/LaTeX%20Mathematical%20formula/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/header.jpg">
+      <meta itemprop="name" content="ljunya">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LaTeX数学公式大全
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-08-22 21:29:24" itemprop="dateCreated datePublished" datetime="2022-08-22T21:29:24+08:00">2022-08-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-07 23:54:16" itemprop="dateModified" datetime="2023-01-07T23:54:16+08:00">2023-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Directory/" itemprop="url" rel="index"><span itemprop="name">Directory</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="前言">前言</h3>
+<p>LaTeX是一套非常优秀的排版系统，
+通过它排版的图书和论文会变得非常漂亮和易读。
+而LaTeX在编写数学公式的易用性和通用性，使我对它产生了浓厚的兴趣。
+这篇文章主要介绍了LaTeX公式编辑在MarkDown下的使用语法和方法。
+以下的例子是在Sublime Text3上编写， 并测试的结果，
+当然你也可以在任何引入MathJax的MarkDown编辑器上测试。</p>
+<span id="more"></span>
+<p>//启动摘要和不展示全文的小技巧</p>
+<h3 id="显示方法">1.显示方法</h3>
+<ul>
+<li>嵌入文字显示：<code>$...$</code> eg:
+<code>$\sum^n_&#123;i=1&#125;x^i=1$</code> ==&gt; <span
+class="math inline">\(\sum^n_{i=1}x^i=1\)</span></li>
+<li>单行显示： <code>$$...$$</code> eg:
+<code>$ $\sum^n_&#123;i=1&#125;x^i=1$ $</code> ==&gt; <span
+class="math display">\[\sum^n_{i=1}x^i=1\]</span></li>
+<li>带序号显示：<code>\begin&#123;equation&#125;...\end&#123;equation&#125;</code> eg:
+<code>\begin&#123;equation&#125;\sum^n_&#123;i=1&#125;x^i=1\end&#123;equation&#125;</code> ==&gt;
+<span
+class="math display">\[\begin{equation}\sum^n_{i=1}x^i=1\end{equation}\]</span>
+<code>\begin&#123;equation&#125;\x+y=z\end&#123;equation&#125;</code> ==&gt; <span
+class="math display">\[\begin{equation}x+y=z\end{equation}\]</span></li>
+</ul>
+<h3 id="通用显示规则">2.通用显示规则</h3>
+<ul>
+<li><code>^</code> =&gt; 上标</li>
+<li><code>_</code> =&gt; 下标</li>
+<li><code>&#123;&#125;</code> =&gt; 包括</li>
+<li><code>~</code> =&gt; 空格</li>
+<li><code>\</code> =&gt; 转移符号</li>
+</ul>
+<h3 id="增强型显示规则">3.增强型显示规则</h3>
+<ul>
+<li><p>求根 eg: <code>$\sqrt&#123;x+y&#125;$</code>==&gt; <span
+class="math inline">\(\sqrt{x+y}\)</span> eg:
+<code>$\sqrt[3]&#123;x+y&#125;$</code>==&gt; <span
+class="math inline">\(\sqrt[3]{x+y}\)</span></p></li>
+<li><p>分数形式 eg: <code>$\frac&#123;a+1&#125;&#123;b+2&#125;$</code> ==&gt; <span
+class="math inline">\(\frac{a+1}{b+2}\)</span> eg:
+<code>$&#123;a+1&#125;\over&#123;b+2&#125;$</code> ==&gt; <span
+class="math inline">\({a+1}\over{b+2}\)</span></p></li>
+<li><p>求和 eg: <code>$\sum$</code>==&gt; <span
+class="math inline">\(\sum\)</span></p></li>
+<li><p>求积 eg: <code>$\prod^n_&#123;i=1&#125;i+1=1$</code> ==&gt; <span
+class="math inline">\(\prod^n_{i=1}i+1=1\)</span></p></li>
+<li><p>求积分 eg: <code>$\int x+1$</code> ==&gt; <span
+class="math inline">\(\int x+1\)</span></p></li>
+<li><p>求积分 eg: <code>$\iint x+1$</code> ==&gt; <span
+class="math inline">\(\iint x+1\)</span></p></li>
+<li><p>并集 eg: <code>$A\bigcup B$</code> ==&gt; <span
+class="math inline">\(A\bigcup B\)</span></p></li>
+<li><p>并集 eg: <code>$A\cup B$</code> ==&gt; <span
+class="math inline">\(A\cup B\)</span></p></li>
+<li><p>交集 eg: <code>$A\cap B$</code> ==&gt; <span
+class="math inline">\(A\cap B\)</span></p></li>
+<li><p>交集 eg: <code>$A\bigcap B$</code> ==&gt; <span
+class="math inline">\(A\bigcap B\)</span></p></li>
+<li><p>箭头 eg: <code>$A\to B$</code> ==&gt; <span
+class="math inline">\(A\to B\)</span></p></li>
+<li><p>eg: <code>$\lim_&#123;0\to 100&#125;$</code> ==&gt; <span
+class="math inline">\(\lim_{0\to 100}\)</span></p></li>
+<li><p>eg: <code>$\ln_&#123;0\to 100&#125;$</code> ==&gt; <span
+class="math inline">\(\ln_{0\to 100}\)</span></p></li>
+<li><p>eg: <code>$\sin x$</code> ==&gt; <span class="math inline">\(\sin
+x\)</span></p></li>
+<li><p>eg: <code>$\cos x$</code> ==&gt; <span class="math inline">\(\cos
+x\)</span></p></li>
+<li><p>8m空格</p></li>
+<li><p>4m空格</p></li>
+<li><p>乘号 eg: <code>$a \times b$</code>=<span class="math inline">\(a
+\times b\)</span></p></li>
+<li><p>除号<br />
+eg: <code>$a\div b$</code>=<span class="math inline">\(a\div
+b\)</span></p></li>
+<li><p>\{\} 花括号显示 eg: <code>$\\&#123; hello \\&#125;$</code> ==&gt; <span
+class="math inline">\(\\{ hello \\}\)</span>
+<em>注意：在这里我测试的Sublime Text3编写输出的结果，
+如果在其他MarkDown编辑器可能要使用单反斜杠</em></p></li>
+<li><p>小括号增强 eg: <code>$\left( hello\right)$</code> ==&gt; <span
+class="math inline">\(\left( hello\right)\)</span></p></li>
+<li><p>中括号增强 eg: <code>$\left[hello\right]$</code> ==&gt; <span
+class="math inline">\(\left[hello\right]\)</span></p></li>
+<li><p>绝对值增强 eg: <code>$\left|hello\right|$</code> ==&gt; <span
+class="math inline">\(\left|hello\right|\)</span></p></li>
+<li><p>尖括号 eg: <code>$\langle hello\rangle$</code> ==&gt; <span
+class="math inline">\(\langle hello\rangle\)</span></p></li>
+<li><p>向上取整 eg: <code>$\lceil hello\rceil$</code> ==&gt; <span
+class="math inline">\(\lceil hello\rceil\)</span></p></li>
+<li><p>向下取整 eg: <code>$\lfloor hllo\rfloor$</code> ==&gt; <span
+class="math inline">\(\lfloor hllo\rfloor\)</span></p></li>
+</ul>
+<h3 id="数学符号表一">4.数学符号表一</h3>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\pm\)</span></td>
+<td><code>\pm</code></td>
+<td><span class="math inline">\(\mp\)</span></td>
+<td><code>\mp</code></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><code>\times</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\div\)</span></td>
+<td><code>\div</code></td>
+<td><span class="math inline">\(\ast\)</span></td>
+<td><code>\ast</code></td>
+<td><span class="math inline">\(\star\)</span></td>
+<td><code>\star</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\circ\)</span></td>
+<td><code>\circ</code></td>
+<td><span class="math inline">\(\bullet\)</span></td>
+<td><code>\bullet</code></td>
+<td><span class="math inline">\(\cdot\)</span></td>
+<td><code>\cdot</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\oplus\)</span></td>
+<td><code>\oplus</code></td>
+<td><span class="math inline">\(\oslash\)</span></td>
+<td><code>\oslash</code></td>
+<td><span class="math inline">\(\dagger\)</span></td>
+<td><code>\dagger</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(+\)</span></td>
+<td><code>+</code></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><code>-</code></td>
+<td><span class="math inline">\(\cap\)</span></td>
+<td><code>\cap</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cup\)</span></td>
+<td><code>\cup</code></td>
+<td><span class="math inline">\(\ddagger\)</span></td>
+<td><code>\ddagger</code></td>
+<td><span class="math inline">\(\diamond\)</span></td>
+<td><code>\diamond</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\uplus\)</span></td>
+<td><code>\uplus</code></td>
+<td><span class="math inline">\(\sqcap\)</span></td>
+<td><code>\sqcap</code></td>
+<td><span class="math inline">\(\sqcup\)</span></td>
+<td><code>\sqcup</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vee\)</span></td>
+<td><code>\vee</code></td>
+<td><span class="math inline">\(\wedge\)</span></td>
+<td><code>\wedge</code></td>
+<td><span class="math inline">\(\setminus\)</span></td>
+<td><code>\setminus</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\wr\)</span></td>
+<td><code>\wr</code></td>
+<td><span class="math inline">\(\ominus\)</span></td>
+<td><code>\ominus</code></td>
+<td><span class="math inline">\(\odot\)</span></td>
+<td><code>\odot</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bigtriangleup\)</span></td>
+<td><code>\bigtriangleup</code></td>
+<td><span class="math inline">\(\bigtriangledown\)</span></td>
+<td><code>\bigtriangledown</code></td>
+<td><span class="math inline">\(\triangleleft\)</span></td>
+<td><code>\triangleleft</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\triangleright\)</span></td>
+<td><code>\triangleright</code></td>
+<td><span class="math inline">\(\lhd\)</span></td>
+<td><code>\lhd</code></td>
+<td><span class="math inline">\(\rhd\)</span></td>
+<td><code>\rhd</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\unlhd\)</span></td>
+<td><code>\unlhd</code></td>
+<td><span class="math inline">\(\unrhd\)</span></td>
+<td><code>\unrhd</code></td>
+<td><span class="math inline">\(\otimes\)</span></td>
+<td><code>\otimes</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\bigcirc\)</span></td>
+<td><code>\bigcirc</code></td>
+<td><span class="math inline">\(\amalg\)</span></td>
+<td><code>\amalg</code></td>
+<td><span class="math inline">\(\sum\)</span></td>
+<td><code>\sum</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\prod\)</span></td>
+<td><code>\prod</code></td>
+<td><span class="math inline">\(\coprod\)</span></td>
+<td><code>\coprod</code></td>
+<td><span class="math inline">\(\int\)</span></td>
+<td><code>\int</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\oint\)</span></td>
+<td><code>\oint</code></td>
+<td><span class="math inline">\(\bigcap\)</span></td>
+<td><code>\bigcap</code></td>
+<td><span class="math inline">\(\bigcup\)</span></td>
+<td><code>\bigcup</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bigsqcup\)</span></td>
+<td><code>\bigsqcup</code></td>
+<td><span class="math inline">\(\bigvee\)</span></td>
+<td><code>\bigvee</code></td>
+<td><span class="math inline">\(\bigwedge\)</span></td>
+<td><code>\bigwedge</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\bigodot\)</span></td>
+<td><code>\bigodot</code></td>
+<td><span class="math inline">\(\bigotimes\)</span></td>
+<td><code>\bigotimes</code></td>
+<td><span class="math inline">\(\bigoplus\)</span></td>
+<td><code>\bigoplus</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\biguplus\)</span></td>
+<td><code>\biguplus</code></td>
+<td><span class="math inline">\(\leq\)</span></td>
+<td><code>\leq</code></td>
+<td><span class="math inline">\(\geq\)</span></td>
+<td><code>\geq</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\equiv\)</span></td>
+<td><code>\equiv</code></td>
+<td><span class="math inline">\(\prec\)</span></td>
+<td><code>\prec</code></td>
+<td><span class="math inline">\(\succ\)</span></td>
+<td><code>\cucc</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sim\)</span></td>
+<td><code>\sim</code></td>
+<td><span class="math inline">\(\preceq\)</span></td>
+<td><code>\preceq</code></td>
+<td><span class="math inline">\(\succeq\)</span></td>
+<td><code>\succeq</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\simeq\)</span></td>
+<td><code>\simeq</code></td>
+<td><span class="math inline">\(\ll\)</span></td>
+<td><code>\ll</code></td>
+<td><span class="math inline">\(\gg\)</span></td>
+<td><code>\gg</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\asymp\)</span></td>
+<td><code>\asymp</code></td>
+<td><span class="math inline">\(\subset\)</span></td>
+<td><code>\subset</code></td>
+<td><span class="math inline">\(\supset\)</span></td>
+<td><code>\supset</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\approx\)</span></td>
+<td><code>\approx</code></td>
+<td><span class="math inline">\(\subseteq\)</span></td>
+<td><code>\subseteq</code></td>
+<td><span class="math inline">\(\supseteq\)</span></td>
+<td><code>\subseteq</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cong\)</span></td>
+<td><code>\cong</code></td>
+<td><span class="math inline">\(\sqsubset\)</span></td>
+<td><code>\sqsubset</code></td>
+<td><span class="math inline">\(\sqsupset\)</span></td>
+<td><code>\sqsupset</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\neq\)</span></td>
+<td><code>\neq</code></td>
+<td><span class="math inline">\(\sqsubseteq\)</span></td>
+<td><code>\sqsubseteq</code></td>
+<td><span class="math inline">\(\sqsupseteq\)</span></td>
+<td><code>\sqsupseteq</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\doteq\)</span></td>
+<td><code>\doteq</code></td>
+<td><span class="math inline">\(\in\)</span></td>
+<td><code>\in</code></td>
+<td><span class="math inline">\(\ni\)</span></td>
+<td><code>\ni</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\notin\)</span></td>
+<td><code>\notin</code></td>
+<td><span class="math inline">\(\vdash\)</span></td>
+<td><code>\vdash</code></td>
+<td><span class="math inline">\(\dashv\)</span></td>
+<td><code>\dashv</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(:\)</span></td>
+<td><code>:</code></td>
+<td><span class="math inline">\(\models\)</span></td>
+<td><code>\models</code></td>
+<td><span class="math inline">\(\perp\)</span></td>
+<td><code>\perp</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mid\)</span></td>
+<td><code>\mid</code></td>
+<td><span class="math inline">\(\parallel\)</span></td>
+<td><code>\parallel</code></td>
+<td><span class="math inline">\(\bowtie\)</span></td>
+<td><code>\bowtie</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Join\)</span></td>
+<td><code>\Join</code></td>
+<td><span class="math inline">\(\smile\)</span></td>
+<td><code>\smile</code></td>
+<td><span class="math inline">\(\frown\)</span></td>
+<td><code>\frown</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\propto\)</span></td>
+<td><code>\propto</code></td>
+<td><span class="math inline">\(&lt;\)</span></td>
+<td><code>&lt;</code></td>
+<td><span class="math inline">\(&gt;\)</span></td>
+<td><code>&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="数学符号表二">5.数学符号表二</h3>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\arccos\)</span></td>
+<td><code>\arccos</code></td>
+<td><span class="math inline">\(\arcsin\)</span></td>
+<td><code>\arcsin</code></td>
+<td><span class="math inline">\(\arctan\)</span></td>
+<td><code>\arctan</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\arg\)</span></td>
+<td><code>\arg</code></td>
+<td><span class="math inline">\(\cos\)</span></td>
+<td><code>\cos</code></td>
+<td><span class="math inline">\(\cosh\)</span></td>
+<td><code>\cosh</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\cot\)</span></td>
+<td><code>\cot</code></td>
+<td><span class="math inline">\(\coth\)</span></td>
+<td><code>\coth</code></td>
+<td><span class="math inline">\(\csc\)</span></td>
+<td><code>\csc</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\deg\)</span></td>
+<td><code>\deg</code></td>
+<td><span class="math inline">\(\det\)</span></td>
+<td><code>\det</code></td>
+<td><span class="math inline">\(\dim\)</span></td>
+<td><code>\dim</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\exp\)</span></td>
+<td><code>\exp</code></td>
+<td><span class="math inline">\(\gcd\)</span></td>
+<td><code>\gcd</code></td>
+<td><span class="math inline">\(\hom\)</span></td>
+<td><code>\hom</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\inf\)</span></td>
+<td><code>\inf</code></td>
+<td><span class="math inline">\(\ker\)</span></td>
+<td><code>\ker</code></td>
+<td><span class="math inline">\(\lg\)</span></td>
+<td><code>\lg</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\lim\)</span></td>
+<td><code>\lim</code></td>
+<td><span class="math inline">\(\liminf\)</span></td>
+<td><code>\liminf</code></td>
+<td><span class="math inline">\(\limsup\)</span></td>
+<td><code>\limsup</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\ln\)</span></td>
+<td><code>\ln</code></td>
+<td><span class="math inline">\(\log\)</span></td>
+<td><code>\log</code></td>
+<td><span class="math inline">\(\max\)</span></td>
+<td><code>\max</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\min\)</span></td>
+<td><code>\min</code></td>
+<td><span class="math inline">\(\Pr\)</span></td>
+<td><code>\pr</code></td>
+<td><span class="math inline">\(\sec\)</span></td>
+<td><code>\sec</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sin\)</span></td>
+<td><code>\sin</code></td>
+<td><span class="math inline">\(\sinh\)</span></td>
+<td><code>\sinh</code></td>
+<td><span class="math inline">\(\sup\)</span></td>
+<td><code>\sup</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tan\)</span></td>
+<td><code>\tan</code></td>
+<td><span class="math inline">\(\tanh\)</span></td>
+<td><code>\tanh</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+</tbody>
+</table>
+<h3 id="箭头符号表">5.箭头符号表</h3>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\leftarrow\)</span></td>
+<td><code>\leftarrow</code></td>
+<td><span class="math inline">\(\longleftarrow\)</span></td>
+<td><code>\longleftarrow</code></td>
+<td><span class="math inline">\(\Leftarrow\)</span></td>
+<td><code>\Leftarrow</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Longleftarrow\)</span></td>
+<td><code>\Longleftarrow</code></td>
+<td><span class="math inline">\(\rightarrow\)</span></td>
+<td><code>\rightarrow</code></td>
+<td><span class="math inline">\(\longrightarrow\)</span></td>
+<td><code>\longrightarrow</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Rightarrow\)</span></td>
+<td><code>\Rightarrow</code></td>
+<td><span class="math inline">\(\Longrightarrow\)</span></td>
+<td><code>\Longrightarrow</code></td>
+<td><span class="math inline">\(\leftrightarrow\)</span></td>
+<td><code>\leftrightarrow</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\longleftrightarrow\)</span></td>
+<td><code>\longleftrightarrow</code></td>
+<td><span class="math inline">\(\Leftrightarrow\)</span></td>
+<td><code>\Leftrightarrow</code></td>
+<td><span class="math inline">\(\Longleftrightarrow\)</span></td>
+<td><code>\Longleftrightarrow</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mapsto\)</span></td>
+<td><code>\mapsto</code></td>
+<td><span class="math inline">\(\longmapsto\)</span></td>
+<td><code>\longmapsto</code></td>
+<td><span class="math inline">\(\hookleftarrow\)</span></td>
+<td><code>\hookleftarrow</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hookrightarrow\)</span></td>
+<td><code>\hookrightarrow</code></td>
+<td><span class="math inline">\(\leftharpoonup\)</span></td>
+<td><code>\leftharpoonup</code></td>
+<td><span class="math inline">\(\rightharpoonup\)</span></td>
+<td><code>\rightharpoonup</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\leftharpoondown\)</span></td>
+<td><code>\leftharpoondown</code></td>
+<td><span class="math inline">\(\rightharpoondown\)</span></td>
+<td><code>\rightharpoondown</code></td>
+<td><span class="math inline">\(\rightleftharpoons\)</span></td>
+<td><code>\rightleftharpoons</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\leadsto\)</span></td>
+<td><code>\leadsto</code></td>
+<td><span class="math inline">\(\uparrow\)</span></td>
+<td><code>\uparrow</code></td>
+<td><span class="math inline">\(\downarrow\)</span></td>
+<td><code>\downarrow</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Uparrow\)</span></td>
+<td><code>\Uparrow</code></td>
+<td><span class="math inline">\(\Downarrow\)</span></td>
+<td><code>\Downarrow</code></td>
+<td><span class="math inline">\(\updownarrow\)</span></td>
+<td><code>\updownarrow</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Updownarrow\)</span></td>
+<td><code>\Updownarrow</code></td>
+<td><span class="math inline">\(\nwarrow\)</span></td>
+<td><code>\nwarrow</code></td>
+<td><span class="math inline">\(\nearrow\)</span></td>
+<td><code>\nearrow</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\swarrow\)</span></td>
+<td><code>\swarrow</code></td>
+<td><span class="math inline">\(\searrow\)</span></td>
+<td><code>\searrow</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+</tbody>
+</table>
+<h3 id="特殊符号表">6.特殊符号表</h3>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+<th>符号</th>
+<th>显示方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\S\)</span></td>
+<td><code>\S</code></td>
+<td><span class="math inline">\(\aleph\)</span></td>
+<td><code>\aleph</code></td>
+<td><span class="math inline">\(\LaTeX\)</span></td>
+<td><code>\LaTeX</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\ldots\)</span></td>
+<td><code>\ldots</code></td>
+<td><span class="math inline">\(\ddots\)</span></td>
+<td><code>\ddots</code></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><code>\cdots</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><code>\vdots</code></td>
+<td><span class="math inline">\(\imath\)</span></td>
+<td><code>\imath</code></td>
+<td><span class="math inline">\(\jmath\)</span></td>
+<td><code>\jmath</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\ell\)</span></td>
+<td><code>\ell</code></td>
+<td><span class="math inline">\(\wp\)</span></td>
+<td><code>\wp</code></td>
+<td><span class="math inline">\(\Re\)</span></td>
+<td><code>\Re</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Im\)</span></td>
+<td><code>\Im</code></td>
+<td><span class="math inline">\(\Diamond\)</span></td>
+<td><code>\Diamond</code></td>
+<td><span class="math inline">\(\diamondsuit\)</span></td>
+<td><code>\diamondsuit</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\prime\)</span></td>
+<td><code>\prime</code></td>
+<td><span class="math inline">\(\emptyset\)</span></td>
+<td><code>\emptyset</code></td>
+<td><span class="math inline">\(\nabla\)</span></td>
+<td><code>\nabla</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\surd\)</span></td>
+<td><code>\surd</code></td>
+<td><span class="math inline">\(\top\)</span></td>
+<td><code>\top</code></td>
+<td><span class="math inline">\(\bot\)</span></td>
+<td><code>\bot</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\backslash\)</span></td>
+<td><code>\backslash</code></td>
+<td><span class="math inline">\(\partial\)</span></td>
+<td><code>\partial</code></td>
+<td><span class="math inline">\(\infty\)</span></td>
+<td><code>\infty</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\triangle\)</span></td>
+<td><code>\triangle</code></td>
+<td><span class="math inline">\(\heartsuit\)</span></td>
+<td><code>\heartsuit</code></td>
+<td><span class="math inline">\(\circledS\)</span></td>
+<td><code>\circledS</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\hbar\)</span></td>
+<td><code>\hbar</code></td>
+<td><span class="math inline">\(\forall\)</span></td>
+<td><code>\forall</code></td>
+<td><span class="math inline">\(\exists\)</span></td>
+<td><code>\exists</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\neg\)</span></td>
+<td><code>\neg</code></td>
+<td><span class="math inline">\(\flat\)</span></td>
+<td><code>\flat</code></td>
+<td><span class="math inline">\(\natural\)</span></td>
+<td><code>\natural</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sharp\)</span></td>
+<td><code>\sharp</code></td>
+<td><span class="math inline">\(\angle\)</span></td>
+<td><code>\angle</code></td>
+<td><span class="math inline">\(\mho\)</span></td>
+<td><code>\mho</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Box\)</span></td>
+<td><code>\Box</code></td>
+<td><span class="math inline">\(\clubsuit\)</span></td>
+<td><code>\clubsuits</code></td>
+<td><span class="math inline">\(\spadesuit\)</span></td>
+<td><code>\spadesuit</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="希腊字母greek-letters显示表">7.希腊字母(Greek
+Letters)显示表</h3>
+<table>
+<thead>
+<tr class="header">
+<th>拉丁字母</th>
+<th>小写显示方法</th>
+<th>大写显示方法</th>
+<th>大写字母</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td><code>\alpha</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta\)</span></td>
+<td><code>\beta</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\gamma\)</span></td>
+<td><code>\gamma</code></td>
+<td><code>\Gamma</code></td>
+<td><span class="math inline">\(\Gamma\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\delta\)</span></td>
+<td><code>\delta</code></td>
+<td><code>\Delta</code></td>
+<td><span class="math inline">\(\Delta\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\epsilon\)</span></td>
+<td><code>\epsilon</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\zeta\)</span></td>
+<td><code>\zeta</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\eta\)</span></td>
+<td><code>\eta</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\theta\)</span></td>
+<td><code>\theta</code></td>
+<td><code>\Theta</code></td>
+<td><span class="math inline">\(\Theta\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\iota\)</span></td>
+<td><code>\iota</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\kappa\)</span></td>
+<td><code>\kappa</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\lambda\)</span></td>
+<td><code>\lambda</code></td>
+<td><code>\lambda</code></td>
+<td><span class="math inline">\(\lambda\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu\)</span></td>
+<td><code>\mu</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\nu\)</span></td>
+<td><code>\nu</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\xi\)</span></td>
+<td><code>\xi</code></td>
+<td><code>\Xi</code></td>
+<td><span class="math inline">\(\Xi\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\omicron\)</span></td>
+<td><code>\omicron</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\pi\)</span></td>
+<td><code>\pi</code></td>
+<td><code>\Pi</code></td>
+<td><span class="math inline">\(\Pi\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span></td>
+<td><code>\rho</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sigma\)</span></td>
+<td><code>\sigma</code></td>
+<td><code>\Sigma</code></td>
+<td><span class="math inline">\(\Sigma\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tau\)</span></td>
+<td><code>\tau</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\upsilon\)</span></td>
+<td><code>\upsilon</code></td>
+<td><code>\Upsilon</code></td>
+<td><span class="math inline">\(\Upsilon\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\phi\)</span></td>
+<td><code>\phi</code></td>
+<td><code>\Phi</code></td>
+<td><span class="math inline">\(\Phi\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\chi\)</span></td>
+<td><code>\chi</code></td>
+<td>——</td>
+<td>——</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\psi\)</span></td>
+<td><code>\psi</code></td>
+<td><code>\Psi</code></td>
+<td><span class="math inline">\(\Psi\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\omega\)</span></td>
+<td><code>\omega</code></td>
+<td><code>\Omega</code></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><em>注意：将小写字母的首字母大写表示为大写拉丁字母</em></p>
+<h3 id="常用结构例子">8.常用结构例子</h3>
+<h4 id="例1">例1</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">\sqrt&#123;37&#125; &amp; = \sqrt&#123;\frac&#123;73^2-1&#125;&#123;12^2&#125;&#125; \\\</span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;\cdot\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\\ </span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;&#125;\sqrt&#123;\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\\</span><br><span class="line"> &amp; = \frac&#123;73&#125;&#123;12&#125;\sqrt&#123;1 - \frac&#123;1&#125;&#123;73^2&#125;&#125; \\\ </span><br><span class="line"> &amp; \approx \frac&#123;73&#125;&#123;12&#125;\left(1 - \frac&#123;1&#125;&#123;2\cdot73^2&#125;\right)</span><br><span class="line"> \end&#123;align&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\begin{align}
+\sqrt{37} &amp; = \sqrt{\frac{73^2-1}{12^2}} \\\\
+&amp; = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\\\
+&amp; = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\\\
+&amp; = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\\\
+&amp; \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
+\end{align}\]</span></p>
+<h4 id="例2">例2</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;matrix&#125;</span><br><span class="line">        1 &amp; x &amp; x^2 \\</span><br><span class="line">        1 &amp; y &amp; y^2 \\</span><br><span class="line">        1 &amp; z &amp; z^2 \\</span><br><span class="line">\end&#123;matrix&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;pmatrix&#125;</span><br><span class="line">        1 &amp; x &amp; x^2 \\</span><br><span class="line">        1 &amp; y &amp; y^2 \\</span><br><span class="line">        1 &amp; z &amp; z^2 \\</span><br><span class="line">\end&#123;pmatrix&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">        1 &amp; x &amp; x^2 \\</span><br><span class="line">        1 &amp; y &amp; y^2 \\</span><br><span class="line">        1 &amp; z &amp; z^2 \\</span><br><span class="line">\end&#123;bmatrix&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;Bmatrix&#125;</span><br><span class="line">        1 &amp; x &amp; x^2 \\</span><br><span class="line">        1 &amp; y &amp; y^2 \\</span><br><span class="line">        1 &amp; z &amp; z^2 \\</span><br><span class="line">\end&#123;Bmatrix&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\begin{matrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{matrix}\]</span> <span class="math display">\[\begin{pmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{pmatrix}\]</span> <span class="math display">\[\begin{bmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{bmatrix}\]</span> <span class="math display">\[\begin{Bmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{Bmatrix}\]</span> <span class="math display">\[\begin{vmatrix}
+        1 &amp; x &amp; x^2 \\
+        1 &amp; y &amp; y^2 \\
+        1 &amp; z &amp; z^2 \\
+\end{vmatrix}\]</span></p>
+<h4 id="例3">例3</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\left[</span><br><span class="line">    \begin&#123;array&#125;&#123;cc|c&#125;</span><br><span class="line">      1&amp;2&amp;3\\</span><br><span class="line">      4&amp;5&amp;6</span><br><span class="line">    \end&#123;array&#125;</span><br><span class="line">\right]</span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\left[
+    \begin{array}{cc|c}
+      1&amp;2&amp;3\\
+      4&amp;5&amp;6
+    \end{array}
+\right]\]</span> <span class="math display">\[\left[
+    \begin{array}{c|cc}
+        2&amp;4&amp;7\\
+        3&amp;6&amp;34
+    \end{array}
+\right]\times\left[
+    \begin{array}{cc|c}
+      1&amp;2&amp;3\\
+      4&amp;5&amp;6
+    \end{array}
+\right]\]</span> #### 例4 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">f(n) =</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">n/2,  &amp; \text&#123;if $n$ is even&#125; \\\</span><br><span class="line">3n+1, &amp; \text&#123;if $n$ is odd&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;array&#125;&#123;c|lcr&#125;</span><br><span class="line">n &amp; \text&#123;Left&#125; &amp; \text&#123;Center&#125; &amp; \text&#123;Right&#125; \\\</span><br><span class="line">\hline</span><br><span class="line">1 &amp; 0.24 &amp; 1 &amp; 125 \\\</span><br><span class="line">2 &amp; -1 &amp; 189 &amp; -8 \\\</span><br><span class="line">3 &amp; -20 &amp; 2000 &amp; 1+10i</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> <span
+class="math display">\[f(n) =
+\begin{cases}
+n/2,  &amp; \text{if $n$ is even} \\
+3n+1, &amp; \text{if $n$ is odd}\end{cases}\]</span></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Math/" rel="tag"># Math</a>
+              <a href="/tags/LaTeX/" rel="tag"># LaTeX</a>
+              <a href="/tags/Formula/" rel="tag"># Formula</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/math-test/" rel="prev" title="Math Test">
+      <i class="fa fa-chevron-left"></i> Math Test
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/pat1009/" rel="next" title="1009说反话">
+      1009说反话 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">1.显示方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E6%98%BE%E7%A4%BA%E8%A7%84%E5%88%99"><span class="nav-number">3.</span> <span class="nav-text">2.通用显示规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E5%BC%BA%E5%9E%8B%E6%98%BE%E7%A4%BA%E8%A7%84%E5%88%99"><span class="nav-number">4.</span> <span class="nav-text">3.增强型显示规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E8%A1%A8%E4%B8%80"><span class="nav-number">5.</span> <span class="nav-text">4.数学符号表一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E8%A1%A8%E4%BA%8C"><span class="nav-number">6.</span> <span class="nav-text">5.数学符号表二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">5.箭头符号表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="nav-number">8.</span> <span class="nav-text">6.特殊符号表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8Dgreek-letters%E6%98%BE%E7%A4%BA%E8%A1%A8"><span class="nav-number">9.</span> <span class="nav-text">7.希腊字母(Greek
+Letters)显示表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%BB%93%E6%9E%84%E4%BE%8B%E5%AD%90"><span class="nav-number">10.</span> <span class="nav-text">8.常用结构例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B1"><span class="nav-number">10.1.</span> <span class="nav-text">例1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B2"><span class="nav-number">10.2.</span> <span class="nav-text">例2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B3"><span class="nav-number">10.3.</span> <span class="nav-text">例3</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ljunya"
+      src="/uploads/header.jpg">
+  <p class="site-author-name" itemprop="name">ljunya</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xqeTE4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ljy18"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/ljunyao18@gmail.com" title="E-Mail → ljunyao18@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ljunya</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">16k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">15 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/fairyDustCursor.js"></script>
