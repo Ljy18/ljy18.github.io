@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://ljy18.github.io/post/pat1009/</loc>
+    <loc>http://ljy18.github.io/post/math-test/</loc>
     
     <lastmod>2023-01-07</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://ljy18.github.io/post/math-test/</loc>
+    <loc>http://ljy18.github.io/post/pat1009/</loc>
     
     <lastmod>2023-01-07</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://ljy18.github.io/post/LineIntegral/</loc>
+    <loc>http://ljy18.github.io/post/LaTeX%20Mathematical%20formula/</loc>
     
     <lastmod>2023-01-07</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://ljy18.github.io/post/LaTeX%20Mathematical%20formula/</loc>
+    <loc>http://ljy18.github.io/post/LineIntegral/</loc>
     
     <lastmod>2023-01-07</lastmod>
     
@@ -110,13 +110,6 @@
 
   
   <url>
-    <loc>http://ljy18.github.io/tags/Math/</loc>
-    <lastmod>2023-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://ljy18.github.io/tags/Cpp/</loc>
     <lastmod>2023-01-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -125,6 +118,13 @@
   
   <url>
     <loc>http://ljy18.github.io/tags/Difficult-points/</loc>
+    <lastmod>2023-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljy18.github.io/tags/Math/</loc>
     <lastmod>2023-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -168,13 +168,6 @@
 
   
   <url>
-    <loc>http://ljy18.github.io/categories/Calculus/</loc>
-    <lastmod>2023-01-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://ljy18.github.io/categories/Cpp/</loc>
     <lastmod>2023-01-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -183,6 +176,13 @@
   
   <url>
     <loc>http://ljy18.github.io/categories/Directory/</loc>
+    <lastmod>2023-01-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://ljy18.github.io/categories/Calculus/</loc>
     <lastmod>2023-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
